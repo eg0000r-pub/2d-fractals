@@ -26,11 +26,13 @@ def koch(arr):
     new_arr.append(arr[-1, :])
     return np.array(new_arr)
 
-n_iter = 8
+n_iter = 5
 
 for i in range(n_iter):
     start = koch(start)
 
 plt.plot(start[:, 0], start[:, 1])
+plt.axis('off')
 plt.gca().set_aspect('equal')
+#plt.savefig(f'koch_{n_iter+1}.eps', bbox_inches='tight')
 plt.show()
