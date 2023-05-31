@@ -25,12 +25,12 @@ def df(x):
     return 3*x**2+2*x+1
 
 
-r_0 = -0.5-0.5
-r_f = -0.5+0.5
-i_0 = -0.5
-i_f = 0.5
+r_0 = -1-2
+r_f = -1+2
+i_0 = -2
+i_f = 2
 
-delta = 0.0025
+delta = 0.005
 
 Rs, Is = np.meshgrid(np.arange(r_0, r_f, delta), np.arange(i_0, i_f, delta))
 ans = np.zeros([np.shape(Rs)[0], np.shape(Rs)[1], 3])
@@ -48,4 +48,6 @@ plt.imshow(ans, interpolation='none', extent=[r_0, r_f, i_0, i_f])
 #plt.plot([0, -0.5, -0.5], [0, 0.8660254, -0.8660254], 'ok')
 plt.xlabel('$Re$')
 plt.ylabel('$Im$')
-plt.show()
+plt.axis('off')
+plt.savefig(f'newton_iter_{num_iter}.png', bbox_inches='tight')
+#plt.show()
